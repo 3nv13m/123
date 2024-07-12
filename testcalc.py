@@ -1,5 +1,5 @@
 import unittest
-from calc import add, subtract, multiply, divide
+from calc import add, factorial, subtract, multiply, divide
 
 class TestCalc(unittest.TestCase):
 
@@ -25,5 +25,21 @@ class TestCalc(unittest.TestCase):
         with self.assertRaises(ValueError):
             divide(10, 0)
 
+    def test_factorial_zero(self):
+        self.assertEqual(factorial(0), 1)
+
+    def test_factorial_one(self):
+        self.assertEqual(factorial(1), 1)
+
+    def test_factorial_positive(self):
+        self.assertEqual(factorial(2), 2)
+        self.assertEqual(factorial(3), 6)
+        self.assertEqual(factorial(4), 24)
+        self.assertEqual(factorial(5), 120)
+
+    def test_factorial_negative(self):
+        with self.assertRaises(ValueError):
+            factorial(-1)
+            
 if __name__ == '__main__':
     unittest.main()
