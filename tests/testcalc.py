@@ -1,5 +1,5 @@
 import unittest
-from src.calc import add, factorial, subtract, multiply, divide
+from src.calc import add, factorial, sin, subtract, multiply, divide
 
 class TestCalc(unittest.TestCase):
 
@@ -41,5 +41,8 @@ class TestCalc(unittest.TestCase):
         with self.assertRaises(ValueError):
             factorial(-1)
 
+    def test_sin(self):
+        self.assertAlmostEqual(sin(30), 0.5, places=5)
+        
 if __name__ == '__main__':
     unittest.main()
